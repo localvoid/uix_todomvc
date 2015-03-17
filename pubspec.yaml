@@ -1,0 +1,9 @@
+name: uix_todomvc
+version: 0.0.1
+author: Boris Kaul <localvoid@gmail.com>
+description: TodoMVC Example for uix library.
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:
+  browser: any
+  uix: any
