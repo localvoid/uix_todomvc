@@ -1,9 +1,9 @@
-library app.components.components;
+library uix_todomvc.src.ui.component.header;
 
 import 'dart:html' as html;
 import 'package:uix/uix.dart';
 import 'package:uix/forms.dart';
-import '../app.dart';
+import '../../env.dart';
 
 part 'header.g.dart';
 
@@ -26,7 +26,7 @@ class Header extends Component {
 
   void _submit(html.KeyboardEvent e) {
     e.preventDefault();
-    app.entryStore.add(_input);
+    entryStore.add(_input);
     _input = '';
     invalidate();
   }

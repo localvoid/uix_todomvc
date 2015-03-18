@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-17T11:04:48.037Z
+// 2015-03-18T18:02:08.742Z
 
-part of app.components.entry_list;
+part of uix_todomvc.src.ui.component.header;
 
 // **************************************************************************
 // Generator: UixGenerator
-// Target: class EntryList
+// Target: class Header
 // **************************************************************************
 
-EntryList createEntryList([List data]) {
-  final r = new EntryList()..data = data;
+Header createHeader([dynamic data]) {
+  final r = new Header()..data = data;
   return r;
 }
-VNode vEntryList({List data, Object key, String type, Map<String, String> attrs,
+VNode vHeader({dynamic data, Object key, String type, Map<String, String> attrs,
     Map<String, String> style, List<String> classes,
-    List<VNode> children}) => new VNode.component(createEntryList,
-    flags: VNode.componentFlag,
+    List<VNode> children}) => new VNode.component(createHeader,
+    flags: VNode.componentFlag | VNode.dirtyCheckFlag,
     key: key,
     data: data,
     type: type,

@@ -1,20 +1,21 @@
-library app.components.entry;
+library uix_todomvc.src.ui.component.entry;
 
 import 'dart:html' as html;
 import 'package:uix/uix.dart';
 import 'package:uix/forms.dart';
-import '../stores/entry.dart' as store;
-import '../app.dart';
+import '../../env.dart';
+import '../../data/store/entry.dart' as store;
 
 part 'entry.g.dart';
 
-@ComponentMeta(dirtyCheck: false)
-class Entry extends Component<store.Entry> {
+@ComponentMeta()
+class Entry extends Component<int> {
   String get tag => 'li';
 
   bool _editing = false;
   String _editingTitle = null;
   VNode _input;
+  store.Entry _entry;
 
   init() {
     element
@@ -38,10 +39,17 @@ class Entry extends Component<store.Entry> {
     element.onBlur.capture(_handleBlur);
   }
 
+  updateState() {
+    _entry = entryStore.get(data);
+    listen(_entry);
+
+    return true;
+  }
+
   void _inputKeyDown(html.KeyboardEvent e) {
     e.preventDefault();
     if (e.keyCode == html.KeyCode.ENTER){
-      app.entryStore.updateTitle(data.id, _editingTitle);
+      entryStore.updateTitle(data, _editingTitle);
     }
     _editing = false;
     _editingTitle = null;
@@ -54,22 +62,22 @@ class Entry extends Component<store.Entry> {
 
   void _startEdit(_) {
     _editing = true;
-    _editingTitle = data.title;
+    _editingTitle = _entry.title;
     invalidate();
   }
 
   void _destroy(_) {
-    app.entryStore.remove(data.id);
+    entryStore.remove(data);
   }
 
   void _toggle(_) {
-    app.entryStore.toggle(data.id);
+    entryStore.toggle(data);
   }
 
   void _handleBlur(html.FocusEvent e) {
     if ((e.target as html.Element).matches('.edit')) {
       if (_editing) {
-        app.entryStore.updateTitle(data.id, _editingTitle);
+        entryStore.updateTitle(data, _editingTitle);
         _editing = false;
         _editingTitle = null;
         invalidate();
@@ -79,8 +87,8 @@ class Entry extends Component<store.Entry> {
 
   build() {
     final view = vElement('div', type: 'view')([
-      vCheckedInput(type: 'toggle', data: data.completed, attrs: const {'type': 'checkbox'}),
-      vElement('label')(data.title),
+      vCheckedInput(type: 'toggle', data: _entry.completed, attrs: const {'type': 'checkbox'}),
+      vElement('label')(_entry.title),
       vElement('button', type: 'destroy')
     ]);
 
@@ -94,7 +102,7 @@ class Entry extends Component<store.Entry> {
 
     final classes = [];
     if (_editing) classes.add('editing');
-    if (data.completed) classes.add('completed');
+    if (_entry.completed) classes.add('completed');
 
     return vRoot(classes: classes)(children);
   }

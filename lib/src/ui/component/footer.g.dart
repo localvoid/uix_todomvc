@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-17T10:41:51.545Z
+// 2015-03-18T18:37:28.432Z
 
-part of app.components.components;
+part of uix_todomvc.src.ui.component.footer;
 
 // **************************************************************************
 // Generator: UixGenerator
-// Target: class Header
+// Target: class Footer
 // **************************************************************************
 
-Header createHeader([dynamic data]) {
-  final r = new Header()..data = data;
+Footer createFooter([dynamic data]) {
+  final r = new Footer()..data = data;
   return r;
 }
-VNode vHeader({dynamic data, Object key, String type, Map<String, String> attrs,
+VNode vFooter({dynamic data, Object key, String type, Map<String, String> attrs,
     Map<String, String> style, List<String> classes,
-    List<VNode> children}) => new VNode.component(createHeader,
+    List<VNode> children}) => new VNode.component(createFooter,
     flags: VNode.componentFlag | VNode.dirtyCheckFlag,
     key: key,
     data: data,
