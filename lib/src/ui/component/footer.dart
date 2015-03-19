@@ -26,8 +26,8 @@ class Footer extends Component {
     _showEntries = settingsStore.showEntries;
     _counters = countersCache.counters;
 
-    listen(_showEntries);
-    listen(_counters);
+    addSubscriptionOneShot(_showEntries.onChange.listen(invalidate));
+    addSubscriptionOneShot(_counters.onChange.listen(invalidate));
 
     return true;
   }

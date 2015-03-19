@@ -1,7 +1,7 @@
 library uix_todomvc.src.data.cache.counters;
 
-import 'package:uix/uix.dart';
 import '../../env.dart';
+import 'cache.dart';
 
 class Counters extends CacheNode {
   int all = 0;
@@ -11,13 +11,11 @@ class Counters extends CacheNode {
   bool update() {
     bool dirty = false;
 
+    addSubscriptionOneShot(entryStore.onChange.listen(invalidate));
+
     final entryMap = entryStore.getAll();
-    listen(entryMap);
 
     final entries = entryMap.data.values.toList();
-    for (final f in entries) {
-      listen(f);
-    }
 
     final newAll = entries.length;
     final newActive = entries.fold(0, (acc, i) {

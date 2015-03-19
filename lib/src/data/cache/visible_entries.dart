@@ -1,29 +1,29 @@
 library uix_todomvc.src.data.cache.visible_entries;
 
-import 'package:uix/uix.dart';
+import '../../env.dart';
 import '../store/entry.dart';
 import '../store/settings.dart';
-import '../../env.dart';
+import 'cache.dart';
 
 class VisibleEntriesList extends CacheNode {
   List<Entry> data;
 
   bool update() {
-    final entries = sortedEntriesCache.entries;
+    final sortedEntries = sortedEntriesCache.entries;
     final showEntries = settingsStore.showEntries;
 
-    listen(entries);
-    listen(showEntries);
+    addSubscriptionOneShot(sortedEntries.onChange.listen(invalidate));
+    addSubscriptionOneShot(showEntries.onChange.listen(invalidate));
 
     switch (showEntries.value) {
       case ShowType.active:
-        data = entries.data.where((i) => !i.completed).toList();
+        data = sortedEntries.data.where((i) => !i.completed).toList();
         break;
       case ShowType.completed:
-        data = entries.data.where((i) => i.completed).toList();
+        data = sortedEntries.data.where((i) => i.completed).toList();
         break;
       default:
-        data = new List<Entry>.from(entries.data);
+        data = new List<Entry>.from(sortedEntries.data);
     }
 
     return true;

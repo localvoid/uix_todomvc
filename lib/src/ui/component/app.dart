@@ -15,13 +15,11 @@ class App extends Component {
   bool _showFooter;
 
   updateState() {
-    final showEntries = settingsStore.showEntries;
     final visibleEntries = visibleEntriesCache.entries;
     final counters = countersCache.counters;
 
-    listen(showEntries);
-    listen(visibleEntries);
-    listen(counters);
+    addSubscriptionOneShot(visibleEntries.onChange.listen(invalidate));
+    addSubscriptionOneShot(counters.onChange.listen(invalidate));
 
     _showMain = visibleEntries.data.isNotEmpty;
     _showFooter = ((counters.active > 0) || (counters.completed > 0));

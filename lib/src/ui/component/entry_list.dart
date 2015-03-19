@@ -15,7 +15,7 @@ class EntryList extends Component {
 
   updateState() {
     final entries = visibleEntriesCache.entries;
-    listen(entries);
+    addSubscriptionOneShot(entries.onChange.listen(invalidate));
     _entries = entries.data;
 
     return true;

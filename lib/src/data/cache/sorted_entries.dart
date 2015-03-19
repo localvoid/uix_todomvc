@@ -1,17 +1,16 @@
 library uix_todomvc.src.data.cache.sorted_entries;
 
-import 'package:uix/uix.dart';
-import '../store/entry.dart';
 import '../../env.dart';
+import '../store/entry.dart';
+import 'cache.dart';
 
 class SortedEntriesList extends CacheNode {
   List<Entry> data = <Entry>[];
 
   bool update() {
-    final entries = entryStore.getAll();
-    listen(entries);
+    addSubscriptionOneShot(entryStore.onChange.listen(invalidate));
 
-    data = entries.data.values.toList()
+    data = entryStore.getAll().data.values.toList()
       ..sort((a, b) => a.id - b.id);
 
     return true;

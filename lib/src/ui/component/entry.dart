@@ -41,7 +41,7 @@ class Entry extends Component<int> {
 
   updateState() {
     _entry = entryStore.get(data);
-    listen(_entry);
+    addSubscriptionOneShot(_entry.onChange.listen(invalidate));
 
     return true;
   }

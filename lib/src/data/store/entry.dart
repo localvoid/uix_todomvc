@@ -1,7 +1,8 @@
 library uix_todomvc.src.data.store.entry;
 
 import 'dart:collection';
-import 'package:uix/uix.dart';
+import '../observable.dart';
+import 'store.dart';
 
 class Entry extends StoreNode {
   static int _nextId = 0;
@@ -17,10 +18,9 @@ class Entry extends StoreNode {
 
 class EntryMap extends StoreNode {
   final HashMap<int, Entry> data = new HashMap<int, Entry>();
-
 }
 
-class EntryStore {
+class EntryStore extends ObservableNode {
   final EntryMap _entries = new EntryMap();
 
   EntryStore();
@@ -35,6 +35,7 @@ class EntryStore {
       _entries.data[e.id] = e;
       _entries.commit();
     }
+    notify();
   }
 
   void remove(int id) {
@@ -51,6 +52,7 @@ class EntryStore {
       e.title = newTitle;
       e.commit();
     }
+    notify();
   }
 
   void toggleAll(bool checked) {
@@ -58,12 +60,14 @@ class EntryStore {
       e.completed = checked;
       e.commit();
     });
+    notify();
   }
 
   void toggle(int id) {
     final e = get(id);
     e.completed = !e.completed;
     e.commit();
+    notify();
   }
 
   void clearCompleted() {
@@ -71,5 +75,6 @@ class EntryStore {
       _entries.data.remove(e.id);
     }
     _entries.commit();
+    notify();
   }
 }

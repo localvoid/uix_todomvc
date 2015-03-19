@@ -1,6 +1,6 @@
 library uix_todomvc.src.data.store.settings;
 
-import 'package:uix/uix.dart';
+import 'store.dart';
 
 enum ShowType {
   all,
