@@ -1,1 +1,1 @@
-# uix • TodoMVC
+# uix • TodoMVC [observable]
