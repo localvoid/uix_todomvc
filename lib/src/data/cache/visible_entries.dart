@@ -12,8 +12,8 @@ class VisibleEntriesList extends CacheNode {
     final sortedEntries = sortedEntriesCache.entries;
     final showEntries = settingsStore.showEntries;
 
-    addSubscriptionOneShot(sortedEntries.onChange.listen(invalidate));
-    addSubscriptionOneShot(showEntries.onChange.listen(invalidate));
+    addTransientSubscription(sortedEntries.onChange.listen(invalidate));
+    addTransientSubscription(showEntries.onChange.listen(invalidate));
 
     switch (showEntries.value) {
       case ShowType.active:

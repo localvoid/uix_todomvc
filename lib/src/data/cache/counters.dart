@@ -11,7 +11,7 @@ class Counters extends CacheNode {
   bool update() {
     bool dirty = false;
 
-    addSubscriptionOneShot(entryStore.onChange.listen(invalidate));
+    addTransientSubscription(entryStore.onChange.listen(invalidate));
 
     final entryMap = entryStore.getAll();
 

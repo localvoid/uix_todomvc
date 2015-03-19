@@ -19,7 +19,7 @@ class Main extends Component {
 
   updateState() {
     final counters = countersCache.counters;
-    addSubscriptionOneShot(counters.onChange.listen(invalidate));
+    addTransientSubscription(counters.onChange.listen(invalidate));
 
     _checked = (counters.active == 0);
     return true;

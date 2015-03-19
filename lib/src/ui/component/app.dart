@@ -18,8 +18,8 @@ class App extends Component {
     final visibleEntries = visibleEntriesCache.entries;
     final counters = countersCache.counters;
 
-    addSubscriptionOneShot(visibleEntries.onChange.listen(invalidate));
-    addSubscriptionOneShot(counters.onChange.listen(invalidate));
+    addTransientSubscription(visibleEntries.onChange.listen(invalidate));
+    addTransientSubscription(counters.onChange.listen(invalidate));
 
     _showMain = visibleEntries.data.isNotEmpty;
     _showFooter = ((counters.active > 0) || (counters.completed > 0));

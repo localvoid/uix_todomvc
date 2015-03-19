@@ -41,6 +41,7 @@ class EntryStore extends ObservableNode {
   void remove(int id) {
     _entries.data.remove(id);
     _entries.commit();
+    notify();
   }
 
   void updateTitle(int id, String newTitle) {

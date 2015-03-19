@@ -8,7 +8,7 @@ class SortedEntriesList extends CacheNode {
   List<Entry> data = <Entry>[];
 
   bool update() {
-    addSubscriptionOneShot(entryStore.onChange.listen(invalidate));
+    addTransientSubscription(entryStore.onChange.listen(invalidate));
 
     data = entryStore.getAll().data.values.toList()
       ..sort((a, b) => a.id - b.id);
