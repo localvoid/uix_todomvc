@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-18T18:02:08.742Z
+// 2015-03-22T09:21:30.632Z
 
 part of uix_todomvc.src.ui.component.header;
 
@@ -10,6 +10,7 @@ part of uix_todomvc.src.ui.component.header;
 
 Header createHeader([dynamic data]) {
   final r = new Header()..data = data;
+  r.init();
   return r;
 }
 VNode vHeader({dynamic data, Object key, String type, Map<String, String> attrs,

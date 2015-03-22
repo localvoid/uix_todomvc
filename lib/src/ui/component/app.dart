@@ -27,7 +27,7 @@ class App extends Component {
     return true;
   }
 
-  build() {
+  updateView() {
     final children = [vHeader(key: #header)];
 
     if (_showMain) {
@@ -37,6 +37,6 @@ class App extends Component {
       children.add(vFooter(key: #footer));
     }
 
-    return vRoot(attrs: const {'id': 'main'})(children);
+    updateRoot(vRoot(attrs: const {'id': 'main'})(children));
   }
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-18T18:20:40.791Z
+// 2015-03-22T09:21:30.608Z
 
 part of uix_todomvc.src.ui.component.entry;
 
@@ -10,6 +10,7 @@ part of uix_todomvc.src.ui.component.entry;
 
 Entry createEntry([int data]) {
   final r = new Entry()..data = data;
+  r.init();
   return r;
 }
 VNode vEntry({int data, Object key, String type, Map<String, String> attrs,

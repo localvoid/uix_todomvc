@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-18T18:37:28.432Z
+// 2015-03-22T09:21:30.638Z
 
 part of uix_todomvc.src.ui.component.footer;
 
@@ -10,6 +10,7 @@ part of uix_todomvc.src.ui.component.footer;
 
 Footer createFooter([dynamic data]) {
   final r = new Footer()..data = data;
+  r.init();
   return r;
 }
 VNode vFooter({dynamic data, Object key, String type, Map<String, String> attrs,

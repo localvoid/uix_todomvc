@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-18T18:18:28.633Z
+// 2015-03-22T09:21:30.642Z
 
 part of uix_todomvc.src.ui.component.entry_list;
 
@@ -10,6 +10,7 @@ part of uix_todomvc.src.ui.component.entry_list;
 
 EntryList createEntryList([dynamic data]) {
   final r = new EntryList()..data = data;
+  r.init();
   return r;
 }
 VNode vEntryList({dynamic data, Object key, String type,

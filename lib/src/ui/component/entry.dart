@@ -85,7 +85,7 @@ class Entry extends Component<int> {
     }
   }
 
-  build() {
+  updateView() {
     final view = vElement('div', type: 'view')([
       vCheckedInput(type: 'toggle', data: _entry.completed, attrs: const {'type': 'checkbox'}),
       vElement('label')(_entry.title),
@@ -104,6 +104,6 @@ class Entry extends Component<int> {
     if (_editing) classes.add('editing');
     if (_entry.completed) classes.add('completed');
 
-    return vRoot(classes: classes)(children);
+    updateRoot(vRoot(classes: classes)(children));
   }
 }

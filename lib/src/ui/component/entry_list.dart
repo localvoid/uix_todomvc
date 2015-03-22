@@ -21,7 +21,9 @@ class EntryList extends Component {
     return true;
   }
 
-  build() => vRoot(attrs: const {'id': 'todo-list'})(
-      _entries.map((e) => vEntry(key: e.id, data: e.id))
-    );
+  updateView() {
+    updateRoot(vRoot(attrs: const {'id': 'todo-list'})(
+        _entries.map((e) => vEntry(key: e.id, data: e.id))
+    ));
+  }
 }

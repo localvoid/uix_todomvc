@@ -32,7 +32,7 @@ class Footer extends Component {
     return true;
   }
 
-  build() {
+  updateView() {
     const selected = const ['selected'];
 
     final filters = vElement('ul', attrs: const {'id': 'filters'})([
@@ -61,6 +61,6 @@ class Footer extends Component {
       );
     }
 
-    return vRoot(attrs: const {'id': 'footer'})(children);
+    updateRoot(vRoot(attrs: const {'id': 'footer'})(children));
   }
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-18T18:37:14.889Z
+// 2015-03-22T09:21:30.591Z
 
 part of uix_todomvc.src.ui.component.main;
 
@@ -10,6 +10,7 @@ part of uix_todomvc.src.ui.component.main;
 
 Main createMain([dynamic data]) {
   final r = new Main()..data = data;
+  r.init();
   return r;
 }
 VNode vMain({dynamic data, Object key, String type, Map<String, String> attrs,

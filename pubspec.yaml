@@ -8,4 +8,4 @@ dependencies:
   browser: any
   route_hierarchical: any
   uix:
-    path: ../uix
+    git: git://github.com/localvoid/uix.git
