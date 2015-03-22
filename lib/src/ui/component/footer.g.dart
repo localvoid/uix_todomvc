@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-22T09:21:30.638Z
+// 2015-03-22T11:15:28.815Z
 
 part of uix_todomvc.src.ui.component.footer;
 
@@ -8,8 +8,10 @@ part of uix_todomvc.src.ui.component.footer;
 // Target: class Footer
 // **************************************************************************
 
-Footer createFooter([dynamic data]) {
-  final r = new Footer()..data = data;
+Footer createFooter([dynamic data, Component parent]) {
+  final r = new Footer()
+    ..parent = parent
+    ..data = data;
   r.init();
   return r;
 }

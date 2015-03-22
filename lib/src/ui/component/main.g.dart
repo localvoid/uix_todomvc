@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-22T09:21:30.591Z
+// 2015-03-22T11:15:28.647Z
 
 part of uix_todomvc.src.ui.component.main;
 
@@ -8,8 +8,10 @@ part of uix_todomvc.src.ui.component.main;
 // Target: class Main
 // **************************************************************************
 
-Main createMain([dynamic data]) {
-  final r = new Main()..data = data;
+Main createMain([dynamic data, Component parent]) {
+  final r = new Main()
+    ..parent = parent
+    ..data = data;
   r.init();
   return r;
 }

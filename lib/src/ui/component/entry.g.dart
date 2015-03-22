@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// 2015-03-22T09:21:30.608Z
+// 2015-03-22T11:15:28.716Z
 
 part of uix_todomvc.src.ui.component.entry;
 
@@ -8,8 +8,10 @@ part of uix_todomvc.src.ui.component.entry;
 // Target: class Entry
 // **************************************************************************
 
-Entry createEntry([int data]) {
-  final r = new Entry()..data = data;
+Entry createEntry([int data, Component parent]) {
+  final r = new Entry()
+    ..parent = parent
+    ..data = data;
   r.init();
   return r;
 }
