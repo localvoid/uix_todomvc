@@ -3,7 +3,7 @@ version: 0.0.1
 author: Boris Kaul <localvoid@gmail.com>
 description: TodoMVC Example for uix library.
 environment:
-  sdk: '>=1.0.0 <2.0.0'
+  sdk: '>=1.9.1'
 dependencies:
   browser: any
   route_hierarchical: any
