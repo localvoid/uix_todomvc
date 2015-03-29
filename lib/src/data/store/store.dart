@@ -1,4 +1,4 @@
-library uix_todomvc.src.data.store.entry;
+library uix_todomvc.src.data.store.store;
 
 import 'package:uix/uix.dart';
 import '../observable.dart';
