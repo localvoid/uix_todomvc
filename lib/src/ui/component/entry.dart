@@ -64,6 +64,11 @@ class Entry extends Component<int> {
     _editing = true;
     _editingTitle = _entry.title;
     invalidate();
+    scheduler.nextFrame.after().then((_) {
+      if (_input != null) {
+        (_input.ref as html.TextInputElement).focus();
+      }
+    });
   }
 
   void _destroy(_) {
