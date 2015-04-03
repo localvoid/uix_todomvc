@@ -25,7 +25,7 @@ abstract class CacheNode extends RevisionedNode with StreamListenerNode, Observa
     if (isDirty) {
       isDirty = false;
       if (update()) {
-        updateRev();
+        updateRevision();
       }
     }
   }

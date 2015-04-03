@@ -5,7 +5,7 @@ import '../observable.dart';
 
 abstract class StoreNode extends RevisionedNode with ObservableNode {
   void commit() {
-    updateRev();
+    updateRevision();
     notify();
   }
 }

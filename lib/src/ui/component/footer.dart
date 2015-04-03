@@ -38,15 +38,15 @@ class Footer extends Component {
     final filters = vElement('ul', attrs: const {'id': 'filters'})([
         vElement('li')(
           vElement('a', attrs: const {'href': '#/'},
-             classes: _showEntries == store.ShowType.all ? selected : null)('All')),
+             classes: _showEntries.value == store.ShowType.all ? selected : null)('All')),
         vText(' '),
         vElement('li')(
           vElement('a', attrs: const {'href': '#/active'},
-             classes: _showEntries == store.ShowType.active ? selected : null)('Active')),
+             classes: _showEntries.value == store.ShowType.active ? selected : null)('Active')),
         vText(' '),
         vElement('li')(
           vElement('a', attrs: const {'href': '#/completed'},
-             classes: _showEntries == store.ShowType.completed ? selected : null)('Completed'))
+             classes: _showEntries.value == store.ShowType.completed ? selected : null)('Completed'))
     ]);
 
     final counter = vElement('span', attrs: const {'id': 'todo-count'})([

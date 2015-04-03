@@ -28,13 +28,13 @@ class App extends Component {
   }
 
   updateView() {
-    final children = [vHeader(key: #header)];
+    final children = [vComponent($Header, key: #header)];
 
     if (_showMain) {
-      children.add(vMain(key: #main));
+      children.add(vComponent($Main, key: #main));
     }
     if (_showFooter) {
-      children.add(vFooter(key: #footer));
+      children.add(vComponent($Footer, key: #footer));
     }
 
     updateRoot(vRoot(attrs: const {'id': 'main'})(children));

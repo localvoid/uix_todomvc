@@ -23,7 +23,7 @@ class EntryList extends Component {
 
   updateView() {
     updateRoot(vRoot(attrs: const {'id': 'todo-list'})(
-        _entries.map((e) => vEntry(key: e.id, data: e.id))
+        _entries.map((e) => vComponent($Entry, key: e.id, data: e.id))
     ));
   }
 }

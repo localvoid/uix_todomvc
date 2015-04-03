@@ -31,8 +31,8 @@ class Main extends Component {
 
   updateView() {
     updateRoot(vRoot(attrs: const {'id': 'main'})([
-      vCheckedInput(data: _checked, attrs: {'type': 'checkbox', 'id': 'toggle-all'}),
-      vEntryList()
+      vComponent($CheckedInput, data: _checked, attrs: {'type': 'checkbox', 'id': 'toggle-all'}),
+      vComponent($EntryList)
     ]));
   }
 }
