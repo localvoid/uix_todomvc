@@ -6,9 +6,7 @@ import '../../data/store/settings.dart' as store;
 import '../../data/cache/counters.dart' as cache;
 import '../../utils.dart';
 
-part 'footer.g.dart';
-
-@ComponentMeta()
+$Footer() => new Footer();
 class Footer extends Component {
   String get tag => 'footer';
 

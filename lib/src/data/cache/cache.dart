@@ -13,7 +13,7 @@ abstract class CacheNode extends RevisionedNode with StreamListenerNode, Observa
   void invalidate([_]) {
     if (!isDirty) {
       isDirty = true;
-      resetTransientSubscriptions();
+      cancelTransientSubscriptions();
       notify();
       invalidated();
     }

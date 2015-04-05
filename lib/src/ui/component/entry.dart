@@ -6,9 +6,7 @@ import 'package:uix/forms.dart';
 import '../../env.dart';
 import '../../data/store/entry.dart' as store;
 
-part 'entry.g.dart';
-
-@ComponentMeta()
+$Entry() => new Entry();
 class Entry extends Component<int> {
   String get tag => 'li';
 

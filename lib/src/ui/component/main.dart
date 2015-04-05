@@ -5,9 +5,7 @@ import 'package:uix/forms.dart';
 import '../../env.dart';
 import 'entry_list.dart';
 
-part 'main.g.dart';
-
-@ComponentMeta()
+$Main() => new Main();
 class Main extends Component {
   String get tag => 'section';
 
