@@ -7,5 +7,9 @@ environment:
 dependencies:
   browser: any
   route_hierarchical: any
+  uix: '^0.7.0'
+  uix_forms:
+    git: git://github.com/localvoid/uix_forms.git
+dependency_overrides:
   uix:
     git: git://github.com/localvoid/uix.git

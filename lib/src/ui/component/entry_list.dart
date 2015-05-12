@@ -7,7 +7,7 @@ import 'entry.dart';
 
 $EntryList() => new EntryList();
 class EntryList extends Component {
-  String get tag => 'ul';
+  final String tag = 'ul';
 
   List<store.Entry> _entries;
 
@@ -20,7 +20,7 @@ class EntryList extends Component {
   }
 
   updateView() {
-    updateRoot(vRoot(attrs: const {'id': 'todo-list'})(
+    updateRoot(vRoot(attrs: const {Attr.id: 'todo-list'})(
         _entries.map((e) => vComponent($Entry, key: e.id, data: e.id))
     ));
   }

@@ -7,7 +7,7 @@ import 'main.dart';
 import 'footer.dart';
 
 class App extends Component {
-  String get tag => 'section';
+  final String tag = 'section';
   bool _showMain;
   bool _showFooter;
 
@@ -34,6 +34,6 @@ class App extends Component {
       children.add(vComponent($Footer, key: #footer));
     }
 
-    updateRoot(vRoot(attrs: const {'id': 'main'})(children));
+    updateRoot(vRoot(attrs: const {Attr.id: 'main'})(children));
   }
 }

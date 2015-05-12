@@ -2,13 +2,13 @@ library uix_todomvc.src.ui.component.entry;
 
 import 'dart:html' as html;
 import 'package:uix/uix.dart';
-import 'package:uix/forms.dart';
+import 'package:uix_forms/uix_forms.dart';
 import '../../env.dart';
 import '../../data/store/entry.dart' as store;
 
 $Entry() => new Entry();
 class Entry extends Component<int> {
-  String get tag => 'li';
+  final String tag = 'li';
 
   bool _editing = false;
   String _editingTitle = null;
@@ -90,14 +90,14 @@ class Entry extends Component<int> {
 
   updateView() {
     final view = vElement('div', type: 'view')([
-      vComponent($CheckedInput, type: 'toggle', data: _entry.completed, attrs: const {'type': 'checkbox'}),
+      vComponent($CheckedInput, type: 'toggle', data: _entry.completed, attrs: const {Attr.type: 'checkbox'}),
       vElement('label')(_entry.title),
       vElement('button', type: 'destroy')
     ]);
 
     final children = [view];
     if (_editing) {
-      _input = vComponent($TextInput, type: 'edit', data: _editingTitle, attrs: const {'type': 'text'});
+      _input = vComponent($TextInput, type: 'edit', data: _editingTitle, attrs: const {Attr.type: 'text'});
       children.add(_input);
     } else {
       _input = null;

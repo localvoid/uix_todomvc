@@ -1,7 +1,7 @@
 library uix_todomvc.src.ui.component.main;
 
 import 'package:uix/uix.dart';
-import 'package:uix/forms.dart';
+import 'package:uix_forms/uix_forms.dart';
 import '../../env.dart';
 import 'entry_list.dart';
 
@@ -28,8 +28,8 @@ class Main extends Component {
   }
 
   updateView() {
-    updateRoot(vRoot(attrs: const {'id': 'main'})([
-      vComponent($CheckedInput, data: _checked, attrs: {'type': 'checkbox', 'id': 'toggle-all'}),
+    updateRoot(vRoot(attrs: const {Attr.id: 'main'})([
+      vComponent($CheckedInput, data: _checked, attrs: const {Attr.type: 'checkbox', Attr.id: 'toggle-all'}),
       vComponent($EntryList)
     ]));
   }
